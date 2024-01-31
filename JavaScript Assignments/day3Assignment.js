@@ -16,8 +16,3 @@ console.log(typeof speaksFrench);
 console.log(typeof yearsOfExperience);
 console.log(typeof age);
 console.log(typeof lastName);
-
-//Let us check type of some non-prmitive data types
-const personalDetails = ["Mayur", 21]; //this will log object on the console.
-
-console.log(typeof personalDetails);
