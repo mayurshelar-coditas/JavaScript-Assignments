@@ -2,7 +2,7 @@
 const studentsPhysicsExamScore = [56, 45, 49, 32, 67];
 
 //reduce
-const reduce = (arrayToReduce, callBackFunction, initialValue) => {
+const reduce = (arrayToReduce, sumOfStudentScoresInPhysicsExam, initialValue) => {
     let accumulatedValue = 0, score = 0;
 
    initialValue === undefined ? accumulatedValue += arrayToReduce[score++] : accumulatedValue = initialValue;
@@ -15,39 +15,34 @@ const reduce = (arrayToReduce, callBackFunction, initialValue) => {
 
 }
 
-const sumOfStudentScoresInPhysicsExam = (accumulator, currentValue) => accumulator += currentValue;
-
-const sumOfPhysicsExamScore = reduce(studentsPhysicsExamScore, sumOfStudentScoresInPhysicsExam, 0);
+const sumOfPhysicsExamScore = reduce(studentsPhysicsExamScore, (accumulator, currentValue) => accumulator += currentValue, 0);
 
 console.log(`Sum of students' physics exam scores: ${sumOfPhysicsExamScore}`);
 
 //Filter
-const filter = (arrayToFilter, callBackFunction) => {
+const filter = (arrayToFilter, filterPassedStudents) => {
     const filterdArray = [];
     for(const element of arrayToFilter){
-        if(callBackFunction(element))
+        if(filterPassedStudents(element))
             filterdArray.push(element);
     }
     return filterdArray;
 }
 
-const filterPassedStudents = (score) => score >= 35 ? true : false;
-
-const studentsPassedInPhysicsExam = filter(studentsPhysicsExamScore, filterPassedStudents);
+const studentsPassedInPhysicsExam = filter(studentsPhysicsExamScore, (score) => score >= 35 ? true : false);
 
 console.log(`Scores of students' passed in physics exam: ${studentsPassedInPhysicsExam}`);
 
 //Map
-const map = (arrayToModify, callBackFunction) => {
+const map = (arrayToModify, increaseStudentsPhysicsScore) => {
     const modifiedArray = [];
     for(const element of arrayToModify){
-        modifiedArray.push(callBackFunction(element));
+        modifiedArray.push(increaseStudentsPhysicsScore(element));
     }
     return modifiedArray;
 }
 
-const increaseStudentsPhysicsScore = (score) => score += 10;
 
-const studentsUpdatedPhysicsExamScore = map(studentsPhysicsExamScore, increaseStudentsPhysicsScore);
+const studentsUpdatedPhysicsExamScore = map(studentsPhysicsExamScore, (score) => score += 10);
 
 console.log(`Updated physics exam scores of students': ${studentsUpdatedPhysicsExamScore}`);
