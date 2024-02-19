@@ -1,7 +1,7 @@
-let n = 5;
-for(let lines = 1; lines <= n; lines++){
+let diamondHeight = 5;
+for(let lines = 1; lines <= diamondHeight; lines++){
     let pattern = "";
-    for(let spaces = 1; spaces <= n-lines; spaces++){
+    for(let spaces = 1; spaces <= diamondHeight-lines; spaces++){
         pattern+=" ";
     }
 
@@ -18,9 +18,9 @@ for(let lines = 1; lines <= n; lines++){
     console.log(pattern);
 
 }
-for(let lines = n-1; lines > 0; lines--){
+for(let lines = diamondHeight -1; lines > 0; lines--){
     let pattern = "";
-    for(let spaces = 1; spaces <= n-lines; spaces++){
+    for(let spaces = 1; spaces <= diamondHeight-lines; spaces++){
         pattern+=" ";
     }
 
