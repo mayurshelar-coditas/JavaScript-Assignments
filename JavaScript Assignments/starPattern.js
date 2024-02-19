@@ -7,9 +7,10 @@ for(let lines = 1; lines <= n; lines++){
 
     if(lines === 1){
         pattern+="*";
-    }else{
+    }
+    else{
         pattern+="*";
-        for(let spaces=1; spaces<2*lines-1; spaces++){
+        for(let spaces=1; spaces<2*lines-2; spaces++){
             pattern+=" ";
         }
         pattern+="*";
@@ -27,7 +28,7 @@ for(let lines = n-1; lines > 0; lines--){
         pattern+="*";
     }else{
         pattern+="*";
-        for(let spaces=1; spaces<2*lines-1; spaces++){
+        for(let spaces=1; spaces<2*lines-2; spaces++){
             pattern+=" ";
         }
         pattern+="*";
