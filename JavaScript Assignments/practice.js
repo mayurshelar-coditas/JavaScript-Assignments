@@ -1,67 +1,76 @@
-// const numbersArray = [1,2,3,4,5,6];
+// // const numbersArray = [1,2,3,4,5,6];
 
-// // console.log(JSON.parse(JSON.stringify(number)));
+// // // console.log(JSON.parse(JSON.stringify(number)));
 
-// //Map, reduce, filter
+// // //Map, reduce, filter
 
-// const squareArray = numbersArray.map((number) => number**2);
+// // const squareArray = numbersArray.map((number) => number**2);
 
-// console.log(squareArray);
+// // console.log(squareArray);
 
-// const evenNumberArray = numbersArray.filter((number) => number%2 === 0);
+// // const evenNumberArray = numbersArray.filter((number) => number%2 === 0);
 
-// console.log(evenNumberArray);
+// // console.log(evenNumberArray);
 
-// const sum = numbersArray.reduce((accumulator, currentValue) => accumulator += currentValue, 0);
+// // const sum = numbersArray.reduce((accumulator, currentValue) => accumulator += currentValue, 0);
 
-// console.log(sum);
+// // console.log(sum);
 
-// console.log(numbersArray.some((number) => number%2===0));
-// console.log(numbersArray.every((number) => number%2===0));
+// // console.log(numbersArray.some((number) => number%2===0));
+// // console.log(numbersArray.every((number) => number%2===0));
 
-// console.log (numbersArray.forEach((element) => console.log(element)));
+// // console.log (numbersArray.forEach((element) => console.log(element)));
 
 
-const executeAfterSeconds = async() => {
-    return new Promise((resolve) => setTimeout(() => resolve("executeAfter2Seconds"), 2000));
-}
+// const executeAfterSeconds = async() => {
+//     return new Promise((resolve) => setTimeout(() => resolve("executeAfter2Seconds"), 2000));
+// }
 
-try{
-    const asyncCalling = async() => {
-        console.log("Calling after 2 seconds");
-        const result = await executeAfterSeconds();
-        console.log(result);
-    }
-}catch(error){
-    console.log(error);
-}
+// try{
+//     const asyncCalling = async() => {
+//         console.log("Calling after 2 seconds");
+//         const result = await executeAfterSeconds();
+//         console.log(result);
+//     }
+// }catch(error){
+//     console.log(error);
+// }
 
-console.log("Calling asyn func");
-asyncCalling();
-console.log("Function called");
+// console.log("Calling asyn func");
+// asyncCalling();
+// console.log("Function called");
 
-const dataFromAPI = new Promise((resolve, reject) => {
-    const randomNumber = Math.floor(Math.random() * 1000);
+// const dataFromAPI = new Promise((resolve, reject) => {
+//     const randomNumber = Math.floor(Math.random() * 1000);
 
-    if(randomNumber > 900)
-        return resolve("Number is big enough!");
+//     if(randomNumber > 900)
+//         return resolve("Number is big enough!");
 
-    return reject("Number is too small");
-});
+//     return reject("Number is too small");
+// });
 
-dataFromAPI.then(resolve => console.log(resolve)).catch(reject => console.log(reject)).finally("Function exexuted successfully!");
+// dataFromAPI.then(resolve => console.log(resolve)).catch(reject => console.log(reject)).finally("Function exexuted successfully!");
 
-const personalInformation = {
-    name: {
-        firstName: "Mayur",
-        lastName: "Shelar",
-        skills: ["fdg","dfg", 767]
-    }, 
-    phoneNumber: 887809669,
-    address: "Pune",
+// const personalInformation = {
+//     name: {
+//         firstName: "Mayur",
+//         lastName: "Shelar",
+//         skills: ["fdg","dfg", 767]
+//     }, 
+//     phoneNumber: 887809669,
+//     address: "Pune",
     
-}
+// }
 
-const { name:{firstName, lastName, skills: [firstSkill, secondSkill, thirdSkill]}, phoneNumber, address} = personalInformation;
-console.log(firstName);
-console.log(firstSkill);
+// const { name:{firstName, lastName, skills: [firstSkill, secondSkill, thirdSkill]}, phoneNumber, address} = personalInformation;
+// console.log(firstName);
+// console.log(firstSkill);
+
+const outerFunction = (firstOperand) => {
+    const secondOperand = Math.ceil(Math.random() * 100);
+
+    return () => firstOperand + secondOperand;
+} 
+
+const innerFunction = outerFunction(10);
+console.log(innerFunction());
