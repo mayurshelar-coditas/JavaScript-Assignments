@@ -13,13 +13,7 @@
 //     console.log("Hi");
 //     setTimeout(() => console.log("Hi2"), 0.1);
 //     console.log("Hi1");
-// }, 0.1)
+// }, 0.1);
 // console.log("Hey....");
-
-// setTimeout(console.log("Hi"), 5000);
-
-
-
-
 
 
