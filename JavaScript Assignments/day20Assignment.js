@@ -1,5 +1,4 @@
 // Assignment - 17 (Promises)
-// DEADLINE - 21st Feb 2025, 9:29AM
 const countriesAPI = 'https://restcountries.com/v2/all';
 const catsAPI = 'https://api.thecatapi.com/v1/breeds';
 
