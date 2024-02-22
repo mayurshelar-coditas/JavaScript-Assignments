@@ -1,6 +1,4 @@
-const loanCalculator = (rateOfInterest) => { 
-    return [(updatedRate) => (10000*updatedRate*12)/100, () => (10000*rateOfInterest*12)/100]
-} 
+const loanCalculator = (rateOfInterest) =[(updatedRate) => (10000*updatedRate*12)/100, () => (10000*rateOfInterest*12)/100];
 
 const homeLoan = loanCalculator(10);
 const [updatRateForHomeLoan, displayhomeLoan] = homeLoan;
