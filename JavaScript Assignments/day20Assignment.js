@@ -1,6 +1,8 @@
 // Assignment - 17 (Promises)
 // DEADLINE - 21st Feb 2025, 9:29AM
 const countriesAPI = 'https://restcountries.com/v2/all';
+const catsAPI = 'https://api.thecatapi.com/v1/breeds';
+
 
 // Read the countries API using fetch and print the name of country, capital, languages, population and area.
 
@@ -18,13 +20,12 @@ const countryDetails = async () => {
         return countries;
 };
 
-const countries = countryDetails();
 
 // Read the countries api and find out the 10 largest countries
 console.log();
 
 const topTenLargestCountries = async () => {
-      const countriesData = await countries;
+      const countriesData = await countryDetails();
         const topTenCountries = countriesData
         .sort((a, b) => b.area - a.area)
         .slice(0, 10);
@@ -39,3 +40,35 @@ const topTenLargestCountries = async () => {
 topTenLargestCountries();
 
 
+const catDetails = async () => {
+    const response = await fetch(catsAPI);
+    const data = await response.json();
+    return data;
+};
+
+const printCatNames = async () => {
+    const catsData = await catDetails();
+    const catNames = catsData.map(cat => {
+        const {name} = cat; 
+        return name;
+    });
+    catNames.forEach(name => console.log(name));
+};
+
+printCatNames();
+
+// Read the cats api and find the average weight of cat in metric unit.
+
+const calculateAverageCatWeight = async () => {
+    const catsData = await catDetails();
+    const weights = catsData.map(cat => {
+        // Split the weight string by '-', map to integers, and filter out any NaN values
+        return cat.weight.metric.split('-').map(weight => parseInt(weight.trim())).filter(weight => !isNaN(weight));
+    }).flat(); // Flatten the array of arrays into a single array
+
+    const totalWeight = weights.reduce((acc, curr) => acc + curr, 0);
+    const averageWeight = totalWeight / weights.length;
+    console.log('Average Cat Weight in Metric:', averageWeight.toFixed(2));
+};
+
+calculateAverageCatWeight();
