@@ -61,9 +61,8 @@ printCatNames();
 const calculateAverageCatWeight = async () => {
     const catsData = await catDetails();
     const weights = catsData.map(cat => {
-        // Split the weight string by '-', map to integers, and filter out any NaN values
         return cat.weight.metric.split('-').map(weight => parseInt(weight.trim())).filter(weight => !isNaN(weight));
-    }).flat(); // Flatten the array of arrays into a single array
+    }).flat(); 
 
     const totalWeight = weights.reduce((acc, curr) => acc + curr, 0);
     const averageWeight = totalWeight / weights.length;
